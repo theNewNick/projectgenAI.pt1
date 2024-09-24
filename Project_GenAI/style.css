@@ -1,0 +1,88 @@
+/* General body styling */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f7f6;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header styling */
+header {
+  background-color: #4CAF50;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Container styling for the upload form */
+.container {
+  width: 80%;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Upload section styling */
+.upload-section {
+  margin-top: 20px;
+}
+
+/* Individual upload item styling */
+.upload-item {
+  margin: 20px 0;
+}
+
+/* Label styling */
+.upload-item label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Input file styling */
+input[type="file"] {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 100%; /* Ensure the input takes the full width */
+}
+
+/* Button styling */
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Button hover effect */
+button:hover {
+  background-color: #45a049;
+}
+
+/* Submit section alignment */
+.submit-section {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Media query for responsiveness on smaller screens */
+@media (max-width: 600px) {
+  .container {
+      width: 100%; /* Full width on small screens */
+      padding: 10px;
+  }
+
+  button {
+      width: 100%; /* Full-width button for mobile */
+  }
+
+  input[type="file"] {
+      padding: 5px; /* Adjust file input padding for mobile */
+  }
+}
