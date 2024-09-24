@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gen AI Financial Analysis System</title>
-  <link rel="stylesheet" href="style.css">
+  <!-- Link to the CSS file in the static folder -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
   <header>
@@ -97,6 +98,7 @@
     </div>
   </div>
   
-  <script src="script.js"></script>
+  <!-- Link to the JS file in the static folder -->
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
