@@ -4,15 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gen AI Financial Analysis System</title>
-  <!-- Update the path to use Flask's `url_for` function to point to static assets -->
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
   <header>
     <h1>Gen AI Financial Analysis System</h1>
-    <p>Upload financial documents and enter necessary financial data to generate a comprehensive analysis.</p>
+    <p style="color:red;">This is a test update to confirm the file being served!</p>
   </header>
- 
+
   <div class="container">
     <div class="upload-section">
       <h2>Document Uploads</h2>
@@ -20,74 +19,79 @@
        
         <!-- Financial Document Uploads -->
         <div class="upload-item">
-          <label for="income-statement">Upload Income Statement</label>
-          <input type="file" id="income-statement" name="income_statement" accept=".pdf,.docx,.xlsx">
+          <label for="income-statement">Upload Income Statement (CSV)</label>
+          <input type="file" id="income-statement" name="income_statement" accept=".csv" required>
         </div>
         <div class="upload-item">
-          <label for="balance-sheet">Upload Balance Sheet</label>
-          <input type="file" id="balance-sheet" name="balance_sheet" accept=".pdf,.docx,.xlsx">
+          <label for="balance-sheet">Upload Balance Sheet (CSV)</label>
+          <input type="file" id="balance-sheet" name="balance_sheet" accept=".csv" required>
         </div>
         <div class="upload-item">
-          <label for="cash-flow">Upload Statement of Cash Flows</label>
-          <input type="file" id="cash-flow" name="cash_flow" accept=".pdf,.docx,.xlsx">
+          <label for="cash-flow">Upload Statement of Cash Flows (CSV)</label>
+          <input type="file" id="cash-flow" name="cash_flow" accept=".csv" required>
         </div>
         <div class="upload-item">
-          <label for="earnings-call">Upload Last Earnings Call</label>
-          <input type="file" id="earnings-call" name="earnings_call" accept=".pdf,.docx,.mp3">
+          <label for="earnings-call">Upload Last Earnings Call Transcript (PDF)</label>
+          <input type="file" id="earnings-call" name="earnings_call" accept=".pdf" required>
         </div>
         <div class="upload-item">
-          <label for="industry-report">Upload Industry Report</label>
-          <input type="file" id="industry-report" name="industry_report" accept=".pdf,.docx,.xlsx">
+          <label for="industry-report">Upload Industry Report (PDF)</label>
+          <input type="file" id="industry-report" name="industry_report" accept=".pdf" required>
         </div>
         <div class="upload-item">
-          <label for="economic-report">Upload Economic Report</label>
-          <input type="file" id="economic-report" name="economic_report" accept=".pdf,.docx,.xlsx">
+          <label for="economic-report">Upload Economic Report (PDF)</label>
+          <input type="file" id="economic-report" name="economic_report" accept=".pdf" required>
         </div>
        
         <!-- User Input Fields -->
         <h2>Financial Inputs</h2>
        
         <div class="input-item">
+          <label for="company-name">Enter Company Name</label>
+          <input type="text" id="company-name" name="company_name" placeholder="e.g., ABC Corp">
+        </div>
+       
+        <div class="input-item">
           <label for="wacc">Enter WACC (%)</label>
-          <input type="number" step="0.01" id="wacc" name="wacc" placeholder="e.g., 10.5">
+          <input type="number" step="0.01" id="wacc" name="wacc" placeholder="e.g., 10.5" required>
         </div>
        
         <div class="input-item">
           <label for="tax-rate">Enter Tax Rate (%)</label>
-          <input type="number" step="0.01" id="tax-rate" name="tax_rate" placeholder="e.g., 21">
+          <input type="number" step="0.01" id="tax-rate" name="tax_rate" placeholder="e.g., 21" required>
         </div>
        
         <div class="input-item">
           <label for="growth-rate">Enter Perpetual Growth Rate (%)</label>
-          <input type="number" step="0.01" id="growth-rate" name="growth_rate" placeholder="e.g., 2">
+          <input type="number" step="0.01" id="growth-rate" name="growth_rate" placeholder="e.g., 2" required>
         </div>
        
         <div class="input-item">
           <label for="stock-price">Enter Current Stock Price</label>
-          <input type="number" step="0.01" id="stock-price" name="stock_price" placeholder="e.g., 150">
+          <input type="number" step="0.01" id="stock-price" name="stock_price" placeholder="e.g., 150" required>
         </div>
        
         <!-- Industry Benchmarks -->
         <h2>Industry Benchmarks</h2>
        
         <div class="input-item">
-          <label for="debt-equity-benchmark">Debt to Equity Benchmark</label>
-          <input type="number" step="0.01" id="debt-equity-benchmark" name="debt_equity_benchmark" placeholder="e.g., 1.5">
+          <label for="debt-equity-benchmark">Debt to Equity Ratio Benchmark</label>
+          <input type="number" step="0.01" id="debt-equity-benchmark" name="debt_equity_benchmark" placeholder="e.g., 1.5" required>
         </div>
        
         <div class="input-item">
           <label for="current-ratio-benchmark">Current Ratio Benchmark</label>
-          <input type="number" step="0.01" id="current-ratio-benchmark" name="current_ratio_benchmark" placeholder="e.g., 1.2">
+          <input type="number" step="0.01" id="current-ratio-benchmark" name="current_ratio_benchmark" placeholder="e.g., 1.2" required>
         </div>
        
         <div class="input-item">
           <label for="pe-benchmark">P/E Ratio Benchmark</label>
-          <input type="number" step="0.01" id="pe-benchmark" name="pe_benchmark" placeholder="e.g., 15">
+          <input type="number" step="0.01" id="pe-benchmark" name="pe_benchmark" placeholder="e.g., 15" required>
         </div>
        
         <div class="input-item">
           <label for="pb-benchmark">P/B Ratio Benchmark</label>
-          <input type="number" step="0.01" id="pb-benchmark" name="pb_benchmark" placeholder="e.g., 1.5">
+          <input type="number" step="0.01" id="pb-benchmark" name="pb_benchmark" placeholder="e.g., 1.5" required>
         </div>
        
         <!-- Submit Button -->
@@ -98,7 +102,6 @@
     </div>
   </div>
  
-  <!-- Update the script path using Flask's url_for -->
   <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
