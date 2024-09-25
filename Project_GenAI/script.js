@@ -5,17 +5,6 @@ document.getElementById('uploadForm').addEventListener('submit', function(e) {
   const form = document.getElementById('uploadForm');
   const formData = new FormData(form);  // Gather all the form data (files + inputs)
 
-  // Example: Log the values to check if they are being captured correctly (optional)
-  console.log('Company Name:', formData.get('company_name'));
-  console.log('WACC:', formData.get('wacc'));
-  console.log('Tax Rate:', formData.get('tax_rate'));
-  console.log('Growth Rate:', formData.get('growth_rate'));
-  console.log('Current Stock Price:', formData.get('stock_price'));
-  console.log('Debt to Equity Benchmark:', formData.get('debt_equity_benchmark'));
-  console.log('Current Ratio Benchmark:', formData.get('current_ratio_benchmark'));
-  console.log('P/E Ratio Benchmark:', formData.get('pe_benchmark'));
-  console.log('P/B Ratio Benchmark:', formData.get('pb_benchmark'));
-
   // Fetch request to send the form data to the Flask backend
   fetch('/analyze', {
       method: 'POST',
@@ -23,7 +12,17 @@ document.getElementById('uploadForm').addEventListener('submit', function(e) {
   })
   .then(response => {
       if (!response.ok) {
-          throw new Error('Network response was not ok');
+          // Attempt to read the error message from the response
+          return response.text().then(text => {
+              throw new Error(text || 'Network response was not ok');
+          });
+      }
+      // Check if the response is a PDF
+      const contentType = response.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/pdf')) {
+          return response.text().then(text => {
+              throw new Error('Expected a PDF file, but received:\n' + text);
+          });
       }
       return response.blob();  // Expecting the report as a file (e.g., PDF)
   })
@@ -39,6 +38,6 @@ document.getElementById('uploadForm').addEventListener('submit', function(e) {
   })
   .catch(error => {
       console.error('Error retrieving report:', error);
-      alert('An error occurred while retrieving the report.');
+      alert('An error occurred while retrieving the report:\n' + error.message);
   });
 });
