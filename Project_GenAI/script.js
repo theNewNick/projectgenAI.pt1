@@ -6,9 +6,10 @@ document.getElementById('uploadForm').addEventListener('submit', function(e) {
   const formData = new FormData(form);  // Gather all the form data (files + inputs)
 
   // Fetch request to send the form data to the Flask backend
-  fetch('/analyze', {
+  fetch('https://projectgenai2.com/analyze', {  // Explicitly specify HTTPS URL
       method: 'POST',
-      body: formData
+      body: formData,
+      credentials: 'same-origin'  // Include credentials if needed
   })
   .then(response => {
       if (!response.ok) {
