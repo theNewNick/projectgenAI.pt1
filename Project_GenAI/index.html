@@ -9,7 +9,7 @@
 <body>
   <header>
     <h1>Gen AI Financial Analysis System</h1>
-    <p style="color:red;">This is a test update to confirm the file being served!</p>
+    <p>Harnessing AI to make every buy, hold, and sell decision a step ahead of the market.</p>
   </header>
 
   <div class="container">
@@ -42,13 +42,19 @@
           <label for="economic-report">Upload Economic Report (PDF)</label>
           <input type="file" id="economic-report" name="economic_report" accept=".pdf" required>
         </div>
+        
+        <!-- Add the Company Logo Upload Field -->
+        <div class="upload-item">
+          <label for="company-logo">Upload Company Logo (Image)</label>
+          <input type="file" id="company-logo" name="company_logo" accept="image/*">
+        </div>
        
         <!-- User Input Fields -->
         <h2>Financial Inputs</h2>
        
         <div class="input-item">
           <label for="company-name">Enter Company Name</label>
-          <input type="text" id="company-name" name="company_name" placeholder="e.g., ABC Corp">
+          <input type="text" id="company-name" name="company_name" placeholder="e.g., ABC Corp" required>
         </div>
        
         <div class="input-item">
