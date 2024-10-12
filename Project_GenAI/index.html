@@ -15,7 +15,7 @@
   <div class="container">
     <div class="upload-section">
       <h2>Document Uploads</h2>
-      <form id="uploadForm" enctype="multipart/form-data">
+      <form id="uploadForm" action="/analyze" method="post" enctype="multipart/form-data">
        
         <!-- Financial Document Uploads -->
         <div class="upload-item">
@@ -42,7 +42,11 @@
           <label for="economic-report">Upload Economic Report (PDF)</label>
           <input type="file" id="economic-report" name="economic_report" accept=".pdf" required>
         </div>
-        
+        <!-- Add the 10-K Report Upload Field -->
+        <div class="upload-item">
+          <label for="ten-k-report">Upload 10-K Report (PDF)</label>
+          <input type="file" id="ten-k-report" name="ten_k_report" accept=".pdf" required>
+        </div>
         <!-- Add the Company Logo Upload Field -->
         <div class="upload-item">
           <label for="company-logo">Upload Company Logo (Image)</label>
