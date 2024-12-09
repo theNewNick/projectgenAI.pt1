@@ -1,0 +1,10 @@
+Flask
+asgiref
+werkzeug
+openai==1.50.2
+tiktoken
+pandas
+numpy
+matplotlib
+PyPDF2
+reportlab
